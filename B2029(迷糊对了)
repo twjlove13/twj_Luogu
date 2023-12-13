@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const double Pi = 3.14;
+const int V = 20000;
+int h, r, cnt;
+double v;
+
+int main()
+{
+    cin >> h >> r;
+    v = Pi * h * r * r;
+    cnt = V / v + 1;
+    cout << cnt;
+    return 0;
+}
