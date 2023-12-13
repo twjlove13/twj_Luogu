@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int s, v, t, hour, minute;
+
+int main()
+{
+    cin >> s >> v;
+    if (s % v == 0) t = s / v;
+    else t = s / v + 1;
+    if (t + 10 <= 8 * 60)
+    {
+        t = 8 * 60 - 10 - t;
+        hour = t / 60;
+        minute = t % 60;
+    }
+    else
+    {
+        t = t - 8 *60;
+        hour = (24 * 60 - t) / 60;
+        minute = (24 * 60 - t) % 60;
+    }
+    printf("%02d:%02d", hour, minute);
+    return 0;
+}
