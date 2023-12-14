@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int i, x[8], y[8], M;
+
+int main()
+{
+    for (i = 1; i <= 7; i++)
+    {
+        cin >> x[i] >> y[i];
+        if (x[i] + y[i] > M && x[i] + y[i] > 8) M = x[i] + y[i];
+    }
+    if (M)
+    {
+        for (i = 1; i <= 7; i++)
+        {
+            if (M == x[i] + y[i])
+            {
+                cout << i;
+                break;
+            }
+        }
+    }
+    else cout << 0;
+    return 0;
+}
