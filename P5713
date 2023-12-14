@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int n, t_1, t_2;
+
+int main()
+{
+    cin >> n;
+    t_1 = n * 5;
+    t_2 = 11 + n * 3;
+    if (t_1 < t_2) cout << "Local";
+    else cout << "Luogu";
+    return 0;
+}
