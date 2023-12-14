@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int m, t, s, cnt;
+
+int main()
+{
+    cin >> m >> t >> s;
+    if (t == 0)
+    {
+        cout << 0 << '\n';
+        return 0;
+    }
+    if (t > s)
+    {
+        cout << m << '\n';
+        return 0;
+    }
+    if (s % t == 0) cnt = s / t;
+    else cnt = s / t + 1;
+    m = m - cnt;
+    if (m > 0) cout << m << '\n';
+    else cout << 0 << '\n';
+    return 0;
+}
