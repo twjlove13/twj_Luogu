@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int arr[105] = { 1}, i, j;
+    for (i = 1; arr[i - 1] != 0; i++) cin >> arr[i];
+    for (j = i - 1; j >= 1; j--)
+        if (arr[j]) cout << arr[j] << " ";
+    return 0;
+}
