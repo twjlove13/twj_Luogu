@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+int M, N;
+int cnt[10];
+int i,j;
+int main()
+{
+    cin >> M >> N;
+    for (i = M; i <= N; i++)
+    {
+        for (j = i; j > 0; j /= 10) cnt[j % 10]++;
+    }
+    for (i = 0; i <= 9; i++)
+        cout << cnt[i] << " ";
+    return 0;
+}
