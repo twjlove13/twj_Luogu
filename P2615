@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int huanfang[40][40] = { 0 };
+
+int main()
+{
+    int N;
+    int j, k, i;
+    cin >> N;
+    huanfang[1][(N + 1) / 2] = 1;
+    for (i = 2; i <= N * N; i++)
+    {
+        for (j = 1; j <= N; j++)
+        {
+            int flg = 0;
+            for (k = 1; k <= N; k++)
+            {
+                if (huanfang[j][k] == i - 1)
+                {
+                    flg = 1;
+                    break;
+                }
+            }
+            if (flg) break;
+        }
+        if (j == 1 && k != N) huanfang[N][k + 1] = i;
+        else
+            if (k == N && j != 1) huanfang[j - 1][1] = i;
+            else
+                if (j == 1 && k == N) huanfang[j + 1][k] = i;
+                else
+                    if (j != 1 && k != N)
+                    {
+                        if (!huanfang[j - 1][k + 1]) huanfang[j - 1][k + 1] = i;
+                        else huanfang[j + 1][k] = i;
+                    }
+    }
+    for (i = 1; i <= N; i++)
+    {
+        for (j = 1; j <= N; j++)
+        {
+            cout << huanfang[i][j] << " ";
+        }
+        cout << "\n";
+    }
+
+
+    return 0;
+}
