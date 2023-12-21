@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, cnt, book[20055], num[105];
+
+int main()
+{
+    cin >> n;
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> num[i];
+        book[num[i]] = 1;
+    }
+    for (int i = 1; i <= n - 1; i++)
+    {
+        for (int j = i + 1; j <= n; j++)
+        {
+            if (book[num[i] + num[j]])
+            {
+                book[num[i] + num[j]] = 0;
+                cnt++;
+            }
+        }
+    }
+    cout << cnt;
+    return 0;
+}
