@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const int N = 1e8 + 1;
+bool vis[N];
+int ant, prime[N];
+void Prime()
+{
+    vis[0] = vis[1] = true;
+    for (int i = 2; i < N; i++)
+    {
+        if (!vis[i]) prime[ant++] = i;
+        for (int j = 0; j < ant && i * prime[j] < N; j++)
+        {
+           vis[i * prime[j]] = true;
+           if (i % prime[j] == 0) break;
+        }
+    }
+}
+
+int main()
+{
+    int a, b, cnt;
+    Prime();
+    cin >> a >> b;
+    for (int i = a; i <= b; i++)
+    {
+        int k[10] = { 0 };
+        int sum = 0;
+        cnt = 0;
+        for (int j = i; j > 0; j /= 10)
+            k[cnt++] = j % 10;
+        for (int j = 0; j < cnt; j++)
+            sum = sum * 10 + k[j];
+        if (sum == i && !vis[i]) cout << i << "\n";
+    }
+    return 0;
+}
