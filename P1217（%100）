@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+//素数
+const int N = 1e8 + 5;
+bool vis[N];     //true为非素数
+int ant, prime[N];
+void Prime()
+{
+    vis[0] = vis[1] = true;
+    for (int i = 2; i < N; i++)
+    {
+        if (!vis[i]) prime[ant++] = i;
+        for (int j = 0; j < ant && i * prime[j] < N; j++)
+        {
+            vis[i * prime[j]] = true;
+            if (i % prime[j] == 0) break;
+        }
+    }
+}
+
+//回文判断
+int jude_palindrome(int num)
+{
+    int cnt = 0;
+    char record[9] = { 0 };
+    for (int i = num; i > 0; i /= 10)
+        record[cnt++] = (char)(i % 10);
+    for (int i = 0, j = cnt - 1; i != j && i < j; i++, j--)
+        if (record[i] != record[j]) return 0;
+    return 1;
+}
+
+int main()
+{
+    int a, b;
+    Prime();
+    cin >> a >> b;
+    for (int i = a; i <= b; i++)
+        if (!vis[i] && jude_palindrome(i))
+            cout << i << '\n';
+    return 0;
+}
