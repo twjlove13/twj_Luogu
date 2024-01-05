@@ -6,7 +6,7 @@ int k = 0;
 
 void result(int hang, int lie, int lines)
 {
-	if (lines > 0)
+	if (lines % 2 == 0)
 	{
 		for (int i = hang; i < hang + lines / 2; i++)
 			for (int j = lie; j < lie + lines / 2; j++)
