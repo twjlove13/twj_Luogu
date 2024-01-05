@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+int main() {
+	int n;
+	cin >> n;
+	long long m = 1;
+	for (int i = 1; i <= n; i++) {
+		m *= i;
+	}
+	cout << m << endl;
+	return 0;
+}
+
+
+//#include<cstdio>
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int jc(int x){
+    if(x==0) return 1;//0的阶乘是1
+    return x*jc(x-1);//一个数的阶乘等于它自己乘以比它小1的数的阶乘
+}
+int main(){
+    int n;
+    cin>>n;
+    cout<<jc(n);
+    return 0;
+}
