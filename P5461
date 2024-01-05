@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int num[1025][1025];
+int k = 0;
+
+void result(int hang, int lie, int lines)
+{
+	if (lines > 0)
+	{
+		for (int i = hang; i < hang + lines / 2; i++)
+			for (int j = lie; j < lie + lines / 2; j++)
+				num[i][j] = 0;
+		lines /= 2;
+		result(hang, lie + lines, lines);
+		result(hang + lines, lie, lines);
+		result(hang + lines, lie + lines, lines);
+	}
+}
+
+int main()
+{
+	int n;
+	cin >> n;
+	for (int i = 1; i <= 1024; i++)
+		for (int j = 1; j <= 1024; j++)
+			num[i][j] = 1;
+	int lines = 1;
+	for (int i = 1; i <= n; i++)
+		lines *= 2;
+	result(1, 1, lines);
+	for (int i = 1; i <= lines; i++)
+	{
+		for (int j = 1; j <= lines; j++)
+			cout << num[i][j] << " ";
+		cout << "\n";
+	}
+	return 0;
+}
