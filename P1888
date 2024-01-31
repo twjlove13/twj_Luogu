@@ -26,6 +26,7 @@ int gcd(int min, int max)
 		return min;
 	else return gcd(max, min % max);
 }
+
 int main()
 {
 	int a, b, c;
