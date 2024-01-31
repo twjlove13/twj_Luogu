@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+int getmax(int a, int b, int c)
+{
+	int max = a;
+	if (max < b)
+		max = b;
+	if (max < c)
+		max = c;
+	return max;
+}
+
+int getmin(int a, int b, int c)
+{
+	int min = a;
+	if (min > b)
+		min = b;
+	if (min > c)
+		min = c;
+	return min;
+}
+
+int getmid(int a, int b, int c)
+{
+	int mid;
+	if ((a < b && a > c) || (a < c && a > b))
+	{
+		mid = a;
+	}
+	else
+	{
+		if ((b < a && b > c) || (b < c && b > a))
+			mid = b;
+		else mid = c;
+	}
+	return mid;
+}
+
+int main()
+{
+	int a, b, c;
+	scanf("%d %d %d", &a, &b, &c);
+	int C = getmax(a, b, c);
+	int B = getmid(a, b, c);
+	int A = getmin(a, b, c);
+	char book[5];
+	scanf("%s", book);
+	for (int i = 0; i < 3; i++)
+	{
+		if (book[i] == 'A')
+		{
+			printf("%d ", A);
+		}
+		else
+		{
+			if (book[i] == 'B')
+				printf("%d ", B);
+			else printf("%d ", C);
+		}
+	}
+	return 0;
+}
