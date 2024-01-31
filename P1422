@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+int main()
+{
+	int T;
+	scanf("%d", &T);
+	double sum = 0;
+	if (T <= 150)
+	{
+		sum = T * 0.4463;
+	}
+	else
+	{
+		if (T > 150 && T <= 400)
+		{
+			sum = 150 * 0.4463 + (T - 150) * 0.4663;
+		}
+		else
+		{
+			sum = 150 * 0.4463 + 250 * 0.4663 + (T - 400) * 0.5663;
+		}
+	}
+	printf("%0.1lf", sum);
+	return 0;
+}
