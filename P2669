@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main()
+{
+	int day;
+	scanf("%d", &day);
+	int sum = 0, currentday = 0, record = 1;
+	while (currentday < day)
+	{
+		for (int i = 0; i < record; i++)
+			sum += record;
+		currentday += record;
+		record++;
+	}
+	printf("%d", sum - (currentday - day) * (record - 1));
+	return 0;
+}
