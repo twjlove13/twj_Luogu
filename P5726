@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+	int N, sum = 0, max = -1, min = 12;
+	for (int i = 0; i < n; ++i)
+	{
+		scanf("%d", &N);
+		sum += N;
+		if (max < N) max = N;
+		if (min > N) min = N;
+	}
+	sum -= (max + min);
+	printf("%.2f", (float)sum / (n - 2));
+	return 0;
+}
