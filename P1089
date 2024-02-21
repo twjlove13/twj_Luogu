@@ -19,7 +19,7 @@ int main()
 		else
 		{
 			currentMoney -= budget[i];
-			storeMoney += currentMoney / 100 * 100;
+			storeMoney += currentMoney / 100 * 100; //避免了if判断
 			currentMoney %= 100;
 		}
 	}
